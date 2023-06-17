@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import HttpResponse
 
 # Create your views here.
@@ -10,7 +12,8 @@ def hello_view(request):
 
 def now_date(request):
     if request.method == 'GET':
-        return HttpResponse('date: ')
+        nowtime = datetime.datetime.now()
+        return HttpResponse(f'date:{nowtime} ')
 
 
 def goodbye_view(request):
