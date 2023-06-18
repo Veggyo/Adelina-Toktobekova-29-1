@@ -19,8 +19,6 @@ from django.urls import path
 from posts.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', hello_view),
-    path('date/', now_date),
-    path('bye/', goodbye_view)
-
+    path('', main_view),
+    path('products/', products_view)
 ]
