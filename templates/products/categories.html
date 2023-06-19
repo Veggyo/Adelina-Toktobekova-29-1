@@ -1,0 +1,9 @@
+{% extends 'layouts/main.html' %}
+
+{% block content %}
+    <div class="categories">
+        {% for categorie in categories %}
+            <h5>{{ categorie.title }}</h5>
+        {% endfor %}
+    </div>
+{% endblock %}

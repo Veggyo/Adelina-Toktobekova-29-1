@@ -1,6 +1,10 @@
 from django.db import models
 
-# Create your models here.
+
+class Categories(models.Model):
+    title = models.CharField(max_length=36)
+
+
 class Product(models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField()
@@ -9,8 +13,8 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     modified_date = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.title
+    categories = models.ManyToManyField(Categories)
 
-
-
+    @property
+    def categories_list(self) -> list:
+        return self.categories.all()
