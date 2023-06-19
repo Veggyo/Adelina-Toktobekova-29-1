@@ -1,4 +1,9 @@
 {% extends 'layouts/main.html'%}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'product.css'%}">
+{% endblock %}
 
 {% block content %}
     <div class="products">
@@ -10,8 +15,8 @@
                     {% for categorie in product.categories_list %}
                         <p>{{ categorie.title }}</p>
                     {% endfor %}
-                    <a href="#" class="card-link">More...</a>
-                    <a href="#" class="card-link">Another link</a>
+                    <a href="/products/{{ products.id }}/" class="card-link">More...</a>
+                    <a href="#" class="card-link">inst:</a>
                 </div>
             </div>
         {% endfor %}
