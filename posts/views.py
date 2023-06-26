@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from posts.models import Product, Categories
 from posts.forms import ProductCreateForm, CategoryCreateForm
+from django.contrib.auth.decorators import login_required
 
 
 def main_view(request):
@@ -41,6 +42,7 @@ def product_detail(request, pk):
         return render(request, 'products/detail.html', context=context_data)
 
 
+@login_required(login_url='/products/')
 def product_create_view(request):
     if request.method == 'GET':
         context_data = {
@@ -67,6 +69,7 @@ def product_create_view(request):
         })
 
 
+@login_required(login_url='/categories/')
 def categories_create_view(request):
     if request.method == 'GET':
         context_data = {
@@ -86,4 +89,3 @@ def categories_create_view(request):
         return render(request, 'products/categories.create.html', context={
             'form': form
         })
-

@@ -37,12 +37,11 @@ def login_view(request):
         return render(request, 'users/login.html', context=context_data)
     if request.method == 'POST':
         data = request.POST
-        form = LoginForm(data)
+        form = LoginForm(data=data)
 
         if form.is_valid():
-            """authenticate"""
             user = authenticate(username=form.cleaned_data.get('username'),
-                                password=form.cleaned_data.get('password'))
+                                password=form.cleaned_data.get('password1'))
             if user:
                 login(request, user)
                 return redirect('/products/')
