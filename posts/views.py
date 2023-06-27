@@ -3,7 +3,7 @@ from posts.models import Product, Categories
 from posts.forms import ProductCreateForm, CategoryCreateForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from posts.costans import PAGINATION_LIMIT
+from posts.constans import PAGINATION_LIMIT
 
 
 def main_view(request):
