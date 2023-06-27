@@ -41,7 +41,7 @@ def login_view(request):
 
         if form.is_valid():
             user = authenticate(username=form.cleaned_data.get('username'),
-                                password=form.cleaned_data.get('password1'))
+                                password=form.cleaned_data.get('password'))
             if user:
                 login(request, user)
                 return redirect('/products/')
