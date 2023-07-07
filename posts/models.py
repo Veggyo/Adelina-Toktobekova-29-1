@@ -8,7 +8,7 @@ class Categories(models.Model):
 class Product(models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField()
-    description = models.TextField(max_length=255)
+    description = models.TextField()
     price = models.IntegerField()
     created_at = models.DateTimeField(auto_now=True)
     modified_date = models.DateTimeField(auto_now_add=True)
